@@ -1,4 +1,4 @@
 brophp
 ======
 
-Php framework that I first learned！
+我第一个学习的php框架！
