@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+	<input name="username" type="notnull" action="both" msg="用户名必填" />
+	<input name="username" type="unique" action="add" msg="用户已经存在！" />
+	<input name="username" type="length" value="3-20" msg="用户名的长度要在3到20之间！" />
+	<input name="password" type="notnull" action="add" msg="密码必填" />
+</form>   

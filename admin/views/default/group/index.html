@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<table class="table">
+			<caption>管理组列表</caption>
+			
+			<tr>
+				<td colspan="5">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+
+			<tr>
+				<td>ID</td>
+				<td>组名称</td>
+				<td>组描述</td>
+				<td>操作</td>
+			</tr>
+
+			<{foreach $data as $g}>
+			<tr>
+				<td><{$g.id}></td>
+				<td><{$g.gname}></td>
+				<td><{$g.description}></td>
+				
+				<td>
+					<a href="<{$url}>/mod/id/<{$g.id}>">编辑</a>
+					<{ if $g.id ne 1 }>
+					【<a onclick="return confirm('确定要删除用户组<{ $g.gname }>吗？')" href="<{$url}>/del/id/<{ $g.id }>">删除</a>】
+					<{ /if }>
+				</td>
+			</tr>
+			<{foreachelse}>
+			<tr>
+				<td colspn="8">木有数据啦</td>
+			</tr>
+			<{/foreach}>
+
+			
+		</table>
+	</body>
+</html>

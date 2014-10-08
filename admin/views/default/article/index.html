@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/del" method="post" onsubmit="return confirm('确定要删除么？')">
+		<table class="table">
+			<caption> 文章列表 </caption>
+
+			<tr>
+				<td colspan="10">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+
+			<tr>
+				<td colspan="10">
+					请按分类选择文档  <{ $select }>	
+					搜索关键字 : <input id="sea" type="text" value="<{$search}>">
+					<input type="button" onclick="search()" value="搜索" />
+					<script type="text/javascript">
+						
+						var sel=document.getElementById("sel");
+						
+						sel.onchange=function(){
+							var cid=this.options[this.selectedIndex].value;
+							window.location="<{$url}>/index/cid/"+cid;
+						}
+
+						function search(){
+							var sel=document.getElementById("sel");
+							var cid=sel.options[sel.selectedIndex].value;
+							var sval=document.getElementById("sea").value;	
+							window.location="<{$url}>/index/cid/"+cid+"/search/"+sval;
+						}
+					</script>
+				</td>
+			</tr>
+
+
+			<tr>
+				<td>CK</td>
+				<td>ID</td>
+				<td>标题</td>
+				<td>栏目</td>
+				<td>关键字</td>
+				<td>点击量</td>
+				<td>添加时间</td>
+				<td>操作</td>
+			</tr>
+
+			<{section loop="$data" name="a"}>
+			<tr>
+				<td><input name="id[]" type="checkbox" value="<{$data[a].id}>" /></td>
+				<td><{$data[a].id}></td>
+				<td>
+					<a href="<{$url}>/edit/id/<{$data[a].id}>"><{$data[a].title}></a>
+					<{if $data[a].pic neq '' }>
+						[<span style="color:green">图</span>]
+					<{/if}>
+				</td>
+				<td><{$data[a].cname}></td>
+				<td><{$data[a].keywords}></td>
+				<td><{$data[a].click}></td>
+				<td><{$data[a].addtime|date_format:"%Y-%m-%d"}></td>
+				<td>
+					<a href="<{$url}>/mod/id/<{$data[a].id}>/cid/<{$data[a].cid}>"> 编辑 </a>
+					<a href="<{$url}>/del/id/<{$data[a].id}>" onclick=" return confirm('确定删除么？')"> 删除 </a>
+				</td>
+			</tr>
+			<{sectionelse}>
+
+			<tr>
+				<td colspan="8">木有数据!</td>
+			</tr>
+
+			<{/section}>
+			<tr>
+				<td colspan="2" style="width:200px;">
+					<label style="float:left; margin:0 15px;"><input type="checkbox" onclick="xz(this.checked)" />全选</label>
+					<input type="submit" value="删除" class="bt1" />
+				</td>
+				<td colspan="6"><{$fpage}></td>
+			</tr>
+		</table>
+	</form>
+<script type="text/javascript">
+	function xz(v){
+		var ids = document.getElementsByName('id[]') ;
+		for (var i = 0; i <= ids.length; i++) {
+			ids[i].checked = v ;
+		};
+	}
+</script>
+	</body>
+</html>

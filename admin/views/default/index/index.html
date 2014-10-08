@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" src="<{$res}>/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="<{$res}>/js/index.js"></script>
+<link rel="stylesheet" href="<{$res}>/css/index.css" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<base target="iframe"/>
+<head>
+</head>
+<body>
+	<div id="top">
+		<!-- <div class="menu">
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+			<a href="#">选择按钮</a>
+		</div> -->
+		<div class="exit">
+			欢迎光临 : <{$smarty.session.username}>     
+			<a href="<{$app}>/login/logout" target="_self">退出</a>
+			<a href="####" target="_self">帮助</a>
+		</div>
+	</div>
+	<div id="left">
+		<dl>
+			<dt>栏目/文章/管理</dt>
+			<dd><a href="<{$app}>/cate/index">栏目列表</a></dd>
+			<dd><a href="<{$app}>/cate/add">栏目添加</a></dd>
+
+			<dd><a href="<{$app}>/article/index">文章列表</a></dd>
+			<dd><a href="<{$app}>/article/add">文章添加</a></dd>
+			<dd><a href="<{$app}>/page/index">单页列表</a></dd>
+			<dd><a href="<{$app}>/page/add">单页添加</a></dd>
+			<dd><a href="<{$app}>/comment/index">评论管理</a></dd>
+
+		</dl>
+		<dl>
+			<dt>分类/商品/管理</dt>
+			<dd><a href="<{$app}>/sort/index">分类列表</a></dd>
+			<dd><a href="<{$app}>/sort/add">分类添加</a></dd>
+			<dd><a href="<{$app}>/goods/index">商品列表</a></dd>
+			<dd><a href="<{$app}>/goods/add">商品添加</a></dd>
+			<dd><a href="<{$app}>/comment/index">评论管理</a></dd>
+
+		</dl>
+		<dl>
+			<dt>管理组/管理员/管理</dt>
+			<dd><a href="<{$app}>/group/index">管理组列表</a></dd>
+			<dd><a href="<{$app}>/group/add">管理组添加</a></dd>
+			<dd><a href="<{$app}>/admin/index">管理员列表</a></dd>
+			<dd><a href="<{$app}>/admin/add">管理员添加</a></dd>
+		</dl>
+	</div>
+	<div id="right">
+		<iframe name="iframe" src="<{$url}>/main"></iframe>
+	</div>
+</body>
+</html>

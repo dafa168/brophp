@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/update" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="<{$article.id}>" />
+			<table class="table">
+				<caption> 文章修改 </caption>
+				<tr>
+					<td colspan="5">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+				</tr>
+				<tr>
+					<td>标题</td>
+					<td><input type="text" name="title" value="<{$article.title}>" style="width:270px;" /></td>
+				</tr>
+
+				<tr>
+					<td>所属分类</td>
+					<td><{$select}></td>
+				</tr>
+				<tr>	
+					<td>缩略图</td>
+					<td style="position:relative">
+						<input type="file" name="pic" />
+						<{if $article.pic neq '' }>
+							<img src="/public/uploads/<{$article.pic}>" width="150" style="position:absolute ;top: -60px;left: 500px;" />
+							<input type="hidden" name="oldPic" value="<{$article.pic}>" />
+						<{/if}>
+					</td>
+				</tr>
+				<tr>
+					<td>关键字</td>
+					<td><input type="text" name="keywords" value="<{$article.keywords}>" style="width:270px;" /></td>
+				</tr>
+
+				<tr>	
+					<td>点击量</td>
+					<td><input type="text" name="click" value="<{$article.click}>" style="width:270px;" /></td>
+				</tr>
+				<tr>
+					<td>文章描述</td>
+					<td><textarea cols="55" rows="5" name="description"><{$article.description}></textarea></td>
+				</tr>
+				<tr>	
+					<td>文章内容</td>
+					<td><textarea cols="65" rows="8" name="body"><{$article.body}></textarea></td>
+					<{$ck}>
+				</tr>
+
+				<tr align="center">
+					<td colspan="2"><input type="submit" class="bt2"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

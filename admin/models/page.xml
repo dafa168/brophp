@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+
+<input name="title" type="notnull" action="both" msg="标题必填" />
+
+<input name="body" type="notnull" action="both" msg="内容必填" />
+
+</form>   

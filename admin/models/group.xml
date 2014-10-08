@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+	<input name="gname" type="notnull" action="both" msg="用户组名称必填" />
+	<input name="gname" type="unique" action="add" msg="用户组名已经存在！" />
+	<input name="gname" type="length" value="3-20" msg="用户组名长度要在3到20之间！" />
+	<input name="description" type="notnull" action="both" msg="用户组描述必填" />
+</form>   

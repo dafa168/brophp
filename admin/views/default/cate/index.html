@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<table class="table">
+			<caption>栏目列表</caption>
+			<tr>
+				<td colspan="5">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+			
+			<tr>
+				<td>ID</td>
+				<td>名称</td>
+				<td>关键字</td>
+				<td>描述</td>
+				<td>操作</td>
+			</tr>
+
+			<{section loop=$data name="c"}>
+			<tr>
+				<td><{$data[c].id}></td>
+				<td><a href="<{$app}>/article/index/cid/<{$data[c].id}>"><{$data[c].cname}></a> <span style="font-size:10px;color:green;">(文档：<{$data[c].num}>)</span> </td>
+				<td><{$data[c].keywords}></td>
+				<td><{$data[c].description}></td>
+				<td>
+					<a href="<{$url}>/mod/id/<{$data[c].id}>">编辑</a>
+					<a href="<{$url}>/del/id/<{$data[c].id}>" onclick="return confirm('确定删除么?')">删除</a>
+				</td>
+			</tr>
+			<{sectionelse}>
+			<tr>
+				<td colspan="6"> 木有数据啦! </td>
+			</tr>
+			<{/section}>
+			<tr>
+				<td colspan="6"><{$page}></td>
+			</tr>
+		</table>
+	</body>
+</html>

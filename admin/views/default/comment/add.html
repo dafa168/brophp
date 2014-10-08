@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<table class="table">
+			<tr>
+				<td>CK</td>
+				<td>ID</td>
+				<td>用户名</td>
+				<td>邮箱</td>
+				<td>评论内容</td>
+				<td>IP</td>
+				<td>时间</td>
+				<td>所属文章</td>
+				<td>操作</td>
+			</tr>
+
+			<{section loop=$data name="c"}>
+			<tr>
+				<td><input type="checked" name="id[]" value="<{$data[c].id}>" /></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td><{$data[c].id}></td>
+				<td>
+					<a href="<{$url}>/edit/id/<{$data[c].id}>">编辑</a>
+					<a href="<{$url}>/del/id/<{$data[c].id}>">删除</a>
+				</td>
+			</tr>
+			<{sectionelse}>
+			<tr>
+				<td colspan="12">木有数据啦</td>
+			</tr>
+			<{/section}>
+
+			<tr>
+				<td colspan="2"><input type="checked" name="id[]" value="" />全选 反选 删除</td>
+				
+				<td colspan="7"><{$page}></td>
+			</tr>
+		</table>
+	</body>
+</html>

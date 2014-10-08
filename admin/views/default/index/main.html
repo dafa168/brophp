@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<table class="table">
+			<caption>服务器基本信息</caption>
+			<tr>
+				<th>域名</th>
+				<td><{$set.domain}></td>
+			</tr>
+
+			<tr>
+				<th>软件版本</th>
+				<td><{$set.software}></td>
+			</tr>
+			<tr>
+				<th>数据库版本</th>
+				<td><{$set.dbVersion}></td>
+			</tr>
+			<tr>
+				<th>数据库使用量</th>
+				<td><{$set.dbSize}></td>
+			</tr>
+
+			<tr>
+				<th>BroPHP框架版本</th>
+				<td><{$set.fkVersion}></td>
+			</tr>
+			<tr>
+				<th>服务器IP</th>
+				<td><{$set.server_ip}></td>
+			</tr>
+			<tr>
+				<th>GD版本</th>
+				<td><{$set.gdVersion}></td>
+			</tr>
+
+			<tr>
+				<th>Register_Globals</th>
+				<td><{$set.Register_Globals}></td>
+			</tr>
+			<tr>
+				<th>Magic_Quotes_Gpc</th>
+				<td><{$set.Magic_Quotes_Gpc}></td>
+			</tr>
+			<tr>
+				<th>最大上传大小</th>
+				<td><{$set.uploadMaxSize}></td>
+			</tr>
+
+		</table>
+	</body>
+</html>

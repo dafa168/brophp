@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+
+<input name="cname" type="notnull" action="both" msg="栏目名称必填" />
+
+</form>   

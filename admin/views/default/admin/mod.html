@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/update" method="post">
+			<input type="hidden" name="id" value="<{$admin.id}>" />
+		<table class="table">
+			<caption>用户修改</caption>
+			<tr>
+				<td colspan="10">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+			<tr>
+				<td>用户组 *</td>
+				<td><{$select}></td>
+			</tr>
+			<tr>
+				<td>用户名</td>
+				<td><input type="text" name="username" value="<{$admin.username}>" style="width:200px;" /> <span style="color:red;font-size:10px;"> 可以使用中文，但禁止除[@][.]以外的特殊符号 </span> </td>
+			</tr>
+
+			<tr>
+				<td>密 码</td>
+				<td><input type="text" name="password" value="" style="width:200px;" /> <span style="font-size:10px;">不填则不修改</span></td>
+			</tr>
+			<tr>
+				<td>是否锁定</td>
+				<td>
+					<label><input type="radio" name="locked" value="0" <{if $admin.locked eq 0}> checked <{/if}> /> 不锁定 </label>
+					<label><input type="radio" name="locked" value="1" <{if $admin.locked eq 1}> checked <{/if}> /> 锁定 </label>
+				</td>
+			</tr>
+			<tr>	
+				<td colspan="10"><input type="submit" class="bt2" /></td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<form>
+	<input name="title" type="notnull" action="both" msg="文章标题必填" />
+	<input name="cid" type="notnull" action="both" msg="栏目必须选择" />
+	<input name="body" type="notnull" action="both" msg="内容必填" />
+</form>   

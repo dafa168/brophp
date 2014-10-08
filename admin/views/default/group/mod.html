@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/update" method="post">
+			<input type="hidden" name="id" value="<{$id}>" />
+		<table class="table">
+			<caption>管理组编辑</caption>
+
+			<tr>
+				<td colspan="5">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+
+			<tr>
+				<td>组名称</td>
+				<td><input type="text" name="gname" value="<{$gname}>" style="width:200px;" /></td>
+			</tr>
+
+			<tr>
+				<td>默认权限</td>
+				<td>
+					<label> <input type="checkbox" name="cateadmin" value="1" <{if $cateadmin eq 1}> checked <{/if}> />  栏目CRUD </label>
+					<label> <input type="checkbox" name="articleadmin" value="1" <{if $articleadmin eq 1}> checked <{/if}> />  文章CRUD </label>
+					<label> <input type="checkbox" name="pageadmin" value="1" <{if $pageadmin eq 1}> checked <{/if}> />  单页CRUD </label>
+					<label> <input type="checkbox" name="commentadmin" value="1" <{if $commentadmin eq 1}> checked <{/if}> />  评论CRUD </label>
+					<label> <input type="checkbox" name="sortadmin" value="1" <{if $sortadmin eq 1}> checked <{/if}> /> 分类CRUD  </label>
+					<label> <input type="checkbox" name="goodsadmin" value="1" <{if $goodsadmin eq 1}> checked <{/if}> />  商品CRUD </label>
+					<label> <input type="checkbox" name="groupadmin" value="1" <{if $groupadmin eq 1}> checked <{/if}> /> 管理组CRUD  </label>
+					<label> <input type="checkbox" name="adminadmin" value="1" <{if $adminadmin eq 1}> checked <{/if}> /> 管理员CRUD </label>
+					<label> <input type="checkbox" name="webadmin" value="1"  <{if $webadmin eq 1}>checked<{/if}> /> 登录后台 </label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>组描述</td>
+				<td><textarea cols="55" rows="5" name="description"><{$description}></textarea> </td>
+			</tr>
+
+			<tr>	
+				<td colspan="2"><input type="submit" class="bt2" /></td>
+			</tr>
+		</table>
+		</form>
+	</body>
+</html>

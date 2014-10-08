@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<table class="table">
+			<caption>管理员列表</caption>
+
+			<tr>
+				<td colspan="6">  <{ if $mess eq "error" }><span style="color:red;">×</span> <{ /if }><{ if $mess eq "ok" }> <span style="color:green;">√</span> <{ /if }> <{ $tmess }></td>
+			</tr>
+
+			<tr>
+				
+				<td colspan="6">
+					用户组：<{$select}>   
+					用户名:<input type="text" name="username" id="sea" value="<{$search}>" />   
+					<input onclick="search()" type="button" class="button" value="搜索用户">  
+				</td>
+			</tr>
+
+			<tr>
+				<td>ID</td>
+				<td>用户名</td>
+				<td>登录时间</td>
+				<td>登录IP</td>
+				<td>是否锁定</td>
+				<td>操作</td>
+			</tr>
+
+			<{section loop=$data name=a}>
+			<tr>
+				<td><{$data[a].id}></td>
+				<td><{$data[a].username}></td>
+				<td><{$data[a].login_time}></td>
+				<td><{$data[a].login_ip}></td>
+				<td><{if $data[a].locked eq 1}> <span style="color:red;"> 锁定 </span> <{else}> <span style="color:green;"> 正常 </span> <{/if}>  </td>
+				<td>
+					<a href="<{$url}>/mod/id/<{$data[a].id}>">编辑</a>
+					<a href="<{$url}>/del/id/<{$data[a].id}>" onclick="return confirm('确定删除么？')">删除</a>
+				</td>
+			</tr>
+			<{sectionelse}>
+			<tr>
+				<td colspn="6">木有数据啦</td>
+			</tr>
+			<{/section}>
+
+			<tr>
+				<td colspan="6"><{$fpage}></td>
+			</tr>
+		</table>
+
+<script type="text/javascript">
+	var sel=document.getElementById("sel");
+	
+	sel.onchange=function(){
+		var gid=this.options[this.selectedIndex].value;
+		window.location="<{$url}>/index/gid/"+gid;
+	}
+	function search(){
+		var gid=sel.options[sel.selectedIndex].value;
+		var sval=document.getElementById("sea").value;	
+		window.location="<{$url}>/index/gid/"+gid+"/search/"+sval;
+
+	}
+</script>
+
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/add" method="post">
+			<table class="table">
+				<caption> 分类添加 </caption>
+				<tr>
+					<td>名称</td>
+					<td><input type="text" name="sname" value="" style="width:270px;" /></td>
+				</tr>
+
+				<tr>
+					<td>所属分类</td>
+					<td> <{$selectForm}> </td>
+				</tr>
+				<tr>
+					<td>关键字</td>
+					<td><input type="text" name="keywords" value="" style="width:270px;" /></td>
+				</tr>
+				<tr>	
+					<td>描述</td>
+					<td><textarea cols="65" rows="8" name="description"></textarea></td>
+				</tr>
+
+				<tr align="center">
+					<td colspan="2"><input type="submit" class="bt2"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

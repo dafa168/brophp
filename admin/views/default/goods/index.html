@@ -1,0 +1,70 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>login</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<link rel="stylesheet" href="<{$res}>/css/public.css" />
+	</head>
+	<body>
+		<form action="<{$url}>/del" method="post" onsubmit="return confirm('确定要删除么？')">
+		<table class="table">
+			<caption>
+				<{if $sname}> <{$sname}> <{else}> 所有 <{/if}> - 商品列表</caption>
+			<tr>
+				<td>CK</td>
+				<td>ID</td>
+				<td>名称</td>
+				<td>栏目</td>
+				<td>价格</td>
+				<td>关键字</td>
+				<td>库存量</td>
+				<td>缩略图</td>
+				<td>添加时间</td>
+				<td>操作</td>
+			</tr>
+
+			<{foreach $data as $g}>
+			<tr>
+				<td><input name="id[]" type="checkbox" value="<{$g.id}>" /></td>
+				<td><{$g.id}></td>
+				<td><{$g.name}></td>
+				<td><{$g.sname}></td>
+				<td><{$g.price}></td>
+				<td><{$g.keywords}></td>
+				<td><{$g.num}></td>
+				<td><{$g.pic}></td>
+				<td><{$g.addtime}></td>
+				<td>
+					<a href="<{$url}>/edit/id/<{$g.id}>/sid/<{$g.sid}>"> 编辑 </a>
+					<a href="<{$url}>/del/id/<{$g.id}>" onclick=" return confirm('确定删除么？')"> 删除 </a>
+				</td>
+			</tr>
+
+			<{foreachelse}>
+
+			<tr>
+				<td colspan="10">木有数据!</td>
+			</tr>
+
+			<{/foreach}>
+
+			<tr>
+				<td colspan="2" style="width:200px;">
+					<label style="float:left; margin:0 15px;"><input type="checkbox" onclick="sel(this.checked)" />全选</label>
+					<input type="submit" class="bt1" />
+				</td>
+				<td colspan="8"><{$fpage}></td>
+			</tr>
+		</table>
+	</form>
+<script type="text/javascript">
+	function sel(v){
+		var ids = document.getElementsByName('id[]') ;
+		for (var i = 0; i <= ids.length; i++) {
+			ids[i].checked = v ;
+		};
+	}
+</script>
+	</body>
+</html>
